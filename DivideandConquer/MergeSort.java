@@ -1,4 +1,4 @@
-package DandC;
+package DivideandConquer;
 
 public class MergeSort {
     public static int[] mergeSort(int[] nums, int l, int h) {
