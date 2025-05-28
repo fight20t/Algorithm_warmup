@@ -1,16 +1,16 @@
 package OtherSorts;
 
+
 public class HeapSort {
     public int[] heapSort(int[] nums) {
         // 在这里填写堆排序的核心代码
         int n=nums.length;
-        for(int i=n/1-1;i>=0;i--){
+        int lastNode=n/2-1;
+        for(int i=lastNode;i>=0;i--){
             heapify(nums,n,i);
         }
-        for(int i=n-1;i>0;i--){
-            int temp=nums[0];
-            nums[0]=nums[i];
-            nums[i]=temp;
+        for(int i=n-1;i>=0;i--){
+            swap(nums,0,i);
             heapify(nums,i,0);
         }
         return nums;
@@ -27,11 +27,14 @@ public class HeapSort {
             largest=right;
         }
         if(largest!=i){
-            int swap=nums[i];
-            nums[i]=nums[largest];
-            nums[largest]=swap;
+            swap(nums,i,largest);
             heapify(nums,n,largest);
         }
+    }
+    private void swap(int[] nums,int i,int j){
+        int temp = nums[i];
+        nums[i] = nums[j];
+        nums[j] = temp;
     }
 
     public static void main(String[] args) {
